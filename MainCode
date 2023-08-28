@@ -1,0 +1,89 @@
+using System;
+static class AssemblyLine
+{
+    static double successRate;
+    static int productionNumber = 221;
+    
+    public static double SuccessRate(int speed)
+    {
+        if (speed == 0) 
+        {
+            return 0.00;
+        }
+        if (speed == 1 || speed == 2 || speed == 3 || speed == 4)
+            return 1.00;
+        if (speed == 5 || speed == 6 || speed == 7 || speed == 8)
+            return 0.90;
+            
+        if (speed == 9 )
+            return 0.80;    
+        else if(speed == 10)
+            return 0.77;
+        return 0;
+    }
+    
+    public static double ProductionRatePerHour(double speed)
+    {
+        if (speed == 0) 
+        {
+            return 0;
+        }
+        if (speed == 1 || speed == 2 || speed == 3 || speed == 4)
+        {
+            successRate = 1.00;
+            return speed * productionNumber * successRate;
+        } 
+        else if (speed == 5 || speed == 6 || speed == 7 || speed == 8)
+        {
+            successRate = 0.90;
+            return speed * productionNumber * successRate;
+        }
+        else if (speed == 9)
+        {
+            successRate = 0.80;
+            return speed * productionNumber * successRate;
+        } else if (speed == 10)
+        {
+            successRate = 0.77;
+            return speed * productionNumber * successRate;
+        }
+        return 0;
+    }
+    public static int WorkingItemsPerMinute(int speed)
+    {
+        double sum;
+        int result;
+        if (speed == 0) 
+        {
+            return 0;
+        }
+        if (speed == 1 || speed == 2 || speed == 3 || speed == 4)
+        {
+            successRate = 1.00;
+            sum = speed * productionNumber * successRate / 60;
+            result = (int)sum;
+            return result;
+        } 
+        else if (speed == 5 || speed == 6 || speed == 7 || speed == 8)
+        {
+            successRate = 0.90;
+            sum = speed * productionNumber * successRate / 60;
+            result = (int)sum;
+            return result;
+        }
+        else if (speed == 9)
+        {
+            successRate = 0.80;
+            sum = speed * productionNumber * successRate / 60;
+            result = (int)sum;
+            return result;
+        } else if (speed == 10)
+        {
+            successRate = 0.77;
+            sum = speed * productionNumber * successRate / 60;
+            result = (int)sum;
+            return result;
+        }
+        return 0;
+    }
+}
